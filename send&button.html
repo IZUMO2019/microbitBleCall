@@ -83,7 +83,7 @@ ble.onRead = function (data, uuid){
     }else if(value==1){
       document.getElementById('data_text').innerHTML = 'は～～い';
       // 発言を作成
-      const uttr = new SpeechSynthesisUtterance('はい ゆずちゃん')
+      const uttr = new SpeechSynthesisUtterance('はい')
       // 言語 (日本語:ja-JP, アメリカ英語:en-US, イギリス英語:en-GB, 中国語:zh-CN, 韓国語:ko-KR)
       uttr.lang = "ja-JP"
       // 速度 0.1-10 初期値:1 (倍速なら2, 半分の倍速なら0.5)

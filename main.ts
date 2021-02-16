@@ -36,18 +36,6 @@ bluetooth.onUartDataReceived(serial.delimiters(Delimiters.Dollar), function () {
     music.playTone(494, music.beat(BeatFraction.Quarter))
     music.playTone(247, music.beat(BeatFraction.Quarter))
     music.rest(music.beat(BeatFraction.Eighth))
-    music.playTone(247, music.beat(BeatFraction.Eighth))
-    music.playTone(494, music.beat(BeatFraction.Eighth))
-    music.playTone(440, music.beat(BeatFraction.Eighth))
-    music.playTone(494, music.beat(BeatFraction.Eighth))
-    music.playTone(554, music.beat(BeatFraction.Eighth))
-    music.playTone(587, music.beat(BeatFraction.Eighth))
-    music.playTone(554, music.beat(BeatFraction.Eighth))
-    music.playTone(494, music.beat(BeatFraction.Eighth))
-    music.playTone(440, music.beat(BeatFraction.Eighth))
-    music.playTone(370, music.beat(BeatFraction.Quarter))
-    music.playTone(466, music.beat(BeatFraction.Quarter))
-    music.playTone(494, music.beat(BeatFraction.Quarter))
     flgF = 2
     basic.showLeds(`
         . . # . .

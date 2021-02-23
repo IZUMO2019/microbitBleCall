@@ -19,7 +19,8 @@ html, body {
 	height: 100%;
 	width: 100%;
 	font-family: 'Lato', Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-	min-width: 440px;
+  min-width: 440px;
+  min-height: 640px;
 	position: relative;
   background-color: #cbfca4;
 }
@@ -35,7 +36,7 @@ hr{
   margin: auto;
   text-align:center;
   width: 100%;
-  min-height: 100%;
+  min-height: 640px;
   max-width: 640px;
   box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
   background-color: #fafc95;
@@ -88,7 +89,7 @@ hr{
 #write:active{
   background-color: #f0f0f0;
 }
-#connect{
+.button{
   border-width: 1px;
   border-color: #e6e6e6;
   border-style: solid;
@@ -100,10 +101,10 @@ hr{
   font-weight: 300;
   margin: 0px;
 }
-#connect:hover{
+.button:hover{
   border-color: #ccc;
 }
-#connect:active{
+.button:active{
   background-color: #f0f0f0;
 }
 
@@ -126,7 +127,7 @@ hr{
 
 #data_text, #data_text2{
   color:#448aff;
-  font-size:72px;
+  font-size:64px;
   font-weight: 300;
   line-height: 1.5em;
 }
@@ -150,7 +151,9 @@ hr{
   font-weight: 300;
 }
 
-
+:focus {
+  outline: none;
+}
 
 a { text-decoration: none; }
 a:link { color: #9a9a9a; }

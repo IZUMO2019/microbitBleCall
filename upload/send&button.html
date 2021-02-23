@@ -17,13 +17,14 @@ Copyright 2017-2020 JellyWare Inc. All Rights Reserved.
 <body>
 <div class="container">
     <div class="title margin">
-        <p id="title">英語教室</p>
+        <p id="title">micro:bit</p>
         <p id="subtitle">ボタンで呼び出し</p>
     </div>
 
     <div class="contents margin">
         <!--<input id="write_value" class="button" value="BlueJelly" size="20">-->
         <button id="connect" class="button">接続</button>
+        <button id="disconnect" class="button" style = "display: none;">切断</button>
         <hr>
         <button id="write"   class="button">呼ぶ</button>
         <hr>
@@ -81,9 +82,9 @@ ble.onRead = function (data, uuid){
     if(value==0){
       document.getElementById('data_text').innerHTML = '';
     }else if(value==1){
-      document.getElementById('data_text').innerHTML = 'は～～い';
+      document.getElementById('data_text').innerHTML = 'はいは～い';
       // 発言を作成
-      const uttr = new SpeechSynthesisUtterance('はーい')
+      const uttr = new SpeechSynthesisUtterance('はいはーい')
       // 言語 (日本語:ja-JP, アメリカ英語:en-US, イギリス英語:en-GB, 中国語:zh-CN, 韓国語:ko-KR)
       uttr.lang = "ja-JP"
       // 速度 0.1-10 初期値:1 (倍速なら2, 半分の倍速なら0.5)
@@ -114,6 +115,9 @@ ble.onConnectGATT = function (uuid) {
 
   document.getElementById('uuid_name').innerHTML = uuid;
   document.getElementById('status').innerHTML = "connected GATT!";
+  document.getElementById('connect').style.display="none";
+  document.getElementById('disconnect').style.display="";
+
 }
 
 //--------------------------------------------------
@@ -121,11 +125,13 @@ ble.onConnectGATT = function (uuid) {
 //--------------------------------------------------
 ble.onDisconnect = function() {
   document.getElementById('status').innerHTML = "disconnected";
+  document.getElementById('connect').style.display="";
+  document.getElementById('disconnect').style.display="none";
 
   //再接続
-  return(ble.startNotify('uuidButton')).then(()=>{
-    ble.startNotify('uuidTemp');
-  });
+  //return(ble.startNotify('uuidButton')).then(()=>{
+  //  ble.startNotify('uuidTemp');
+  //});
 }
 
 //--------------------------------------------------
@@ -175,15 +181,14 @@ document.getElementById('write').addEventListener('click', function() {
 });
 
 document.getElementById('connect').addEventListener('click', function(){
-  //非同期処理の書き方、どうやらこれでうまくいく
   return(ble.startNotify('uuidButton')).then(()=>{
-    //ble.startNotify('uuidTemp');
-  setTimeout(ntf,5000,'uuidTemp');
+    setTimeout(ntf,3000,'uuidTemp');
+  });
 });
-  //ble.write('uuidLed', 'end$');
-  //ble.startNotify('uuidButton');
-  //setTimeout(ntf,10000,'uuidTemp');
-  //ble.scan('uuidLed');
+document.getElementById('disconnect').addEventListener('click', function(){
+  return(ble.disconnect('uuidButton')).then(()=>{
+    ;
+  });
 });
 
 
